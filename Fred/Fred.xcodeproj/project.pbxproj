@@ -1,0 +1,623 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D45E108826798A690062060F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45E108726798A690062060F /* AppDelegate.swift */; };
+		D45E108A26798A690062060F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45E108926798A690062060F /* SceneDelegate.swift */; };
+		D45E108C26798A690062060F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45E108B26798A690062060F /* ContentView.swift */; };
+		D45E108E26798A6A0062060F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D45E108D26798A6A0062060F /* Assets.xcassets */; };
+		D45E109126798A6A0062060F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D45E109026798A6A0062060F /* Preview Assets.xcassets */; };
+		D45E109426798A6A0062060F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D45E109226798A6A0062060F /* LaunchScreen.storyboard */; };
+		D45E109F26798A6A0062060F /* FredTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45E109E26798A6A0062060F /* FredTests.swift */; };
+		D45E10AA26798A6A0062060F /* FredUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45E10A926798A6A0062060F /* FredUITests.swift */; };
+		D45E10B92679A4D60062060F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D45E10B82679A4D60062060F /* Alamofire */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D45E109B26798A6A0062060F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D45E107C26798A680062060F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D45E108326798A690062060F;
+			remoteInfo = Fred;
+		};
+		D45E10A626798A6A0062060F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D45E107C26798A680062060F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D45E108326798A690062060F;
+			remoteInfo = Fred;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D45E108426798A690062060F /* Fred.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fred.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D45E108726798A690062060F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D45E108926798A690062060F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D45E108B26798A690062060F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; tabWidth = 3; };
+		D45E108D26798A6A0062060F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D45E109026798A6A0062060F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D45E109326798A6A0062060F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D45E109526798A6A0062060F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D45E109A26798A6A0062060F /* FredTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FredTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D45E109E26798A6A0062060F /* FredTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FredTests.swift; sourceTree = "<group>"; };
+		D45E10A026798A6A0062060F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D45E10A526798A6A0062060F /* FredUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FredUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D45E10A926798A6A0062060F /* FredUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FredUITests.swift; sourceTree = "<group>"; };
+		D45E10AB26798A6A0062060F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D45E108126798A690062060F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D45E10B92679A4D60062060F /* Alamofire in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D45E109726798A6A0062060F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D45E10A226798A6A0062060F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D45E107B26798A680062060F = {
+			isa = PBXGroup;
+			children = (
+				D45E108626798A690062060F /* Fred */,
+				D45E109D26798A6A0062060F /* FredTests */,
+				D45E10A826798A6A0062060F /* FredUITests */,
+				D45E108526798A690062060F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D45E108526798A690062060F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D45E108426798A690062060F /* Fred.app */,
+				D45E109A26798A6A0062060F /* FredTests.xctest */,
+				D45E10A526798A6A0062060F /* FredUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D45E108626798A690062060F /* Fred */ = {
+			isa = PBXGroup;
+			children = (
+				D45E108726798A690062060F /* AppDelegate.swift */,
+				D45E108926798A690062060F /* SceneDelegate.swift */,
+				D45E108B26798A690062060F /* ContentView.swift */,
+				D45E108D26798A6A0062060F /* Assets.xcassets */,
+				D45E109226798A6A0062060F /* LaunchScreen.storyboard */,
+				D45E109526798A6A0062060F /* Info.plist */,
+				D45E108F26798A6A0062060F /* Preview Content */,
+			);
+			path = Fred;
+			sourceTree = "<group>";
+		};
+		D45E108F26798A6A0062060F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D45E109026798A6A0062060F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D45E109D26798A6A0062060F /* FredTests */ = {
+			isa = PBXGroup;
+			children = (
+				D45E109E26798A6A0062060F /* FredTests.swift */,
+				D45E10A026798A6A0062060F /* Info.plist */,
+			);
+			path = FredTests;
+			sourceTree = "<group>";
+		};
+		D45E10A826798A6A0062060F /* FredUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D45E10A926798A6A0062060F /* FredUITests.swift */,
+				D45E10AB26798A6A0062060F /* Info.plist */,
+			);
+			path = FredUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D45E108326798A690062060F /* Fred */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D45E10AE26798A6A0062060F /* Build configuration list for PBXNativeTarget "Fred" */;
+			buildPhases = (
+				D45E108026798A690062060F /* Sources */,
+				D45E108126798A690062060F /* Frameworks */,
+				D45E108226798A690062060F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Fred;
+			packageProductDependencies = (
+				D45E10B82679A4D60062060F /* Alamofire */,
+			);
+			productName = Fred;
+			productReference = D45E108426798A690062060F /* Fred.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D45E109926798A6A0062060F /* FredTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D45E10B126798A6A0062060F /* Build configuration list for PBXNativeTarget "FredTests" */;
+			buildPhases = (
+				D45E109626798A6A0062060F /* Sources */,
+				D45E109726798A6A0062060F /* Frameworks */,
+				D45E109826798A6A0062060F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D45E109C26798A6A0062060F /* PBXTargetDependency */,
+			);
+			name = FredTests;
+			productName = FredTests;
+			productReference = D45E109A26798A6A0062060F /* FredTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D45E10A426798A6A0062060F /* FredUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D45E10B426798A6A0062060F /* Build configuration list for PBXNativeTarget "FredUITests" */;
+			buildPhases = (
+				D45E10A126798A6A0062060F /* Sources */,
+				D45E10A226798A6A0062060F /* Frameworks */,
+				D45E10A326798A6A0062060F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D45E10A726798A6A0062060F /* PBXTargetDependency */,
+			);
+			name = FredUITests;
+			productName = FredUITests;
+			productReference = D45E10A526798A6A0062060F /* FredUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D45E107C26798A680062060F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					D45E108326798A690062060F = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					D45E109926798A6A0062060F = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = D45E108326798A690062060F;
+					};
+					D45E10A426798A6A0062060F = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = D45E108326798A690062060F;
+					};
+				};
+			};
+			buildConfigurationList = D45E107F26798A680062060F /* Build configuration list for PBXProject "Fred" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D45E107B26798A680062060F;
+			packageReferences = (
+				D45E10B72679A4D60062060F /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
+			productRefGroup = D45E108526798A690062060F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D45E108326798A690062060F /* Fred */,
+				D45E109926798A6A0062060F /* FredTests */,
+				D45E10A426798A6A0062060F /* FredUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D45E108226798A690062060F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D45E109426798A6A0062060F /* LaunchScreen.storyboard in Resources */,
+				D45E109126798A6A0062060F /* Preview Assets.xcassets in Resources */,
+				D45E108E26798A6A0062060F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D45E109826798A6A0062060F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D45E10A326798A6A0062060F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D45E108026798A690062060F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D45E108826798A690062060F /* AppDelegate.swift in Sources */,
+				D45E108A26798A690062060F /* SceneDelegate.swift in Sources */,
+				D45E108C26798A690062060F /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D45E109626798A6A0062060F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D45E109F26798A6A0062060F /* FredTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D45E10A126798A6A0062060F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D45E10AA26798A6A0062060F /* FredUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D45E109C26798A6A0062060F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D45E108326798A690062060F /* Fred */;
+			targetProxy = D45E109B26798A6A0062060F /* PBXContainerItemProxy */;
+		};
+		D45E10A726798A6A0062060F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D45E108326798A690062060F /* Fred */;
+			targetProxy = D45E10A626798A6A0062060F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D45E109226798A6A0062060F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D45E109326798A6A0062060F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D45E10AC26798A6A0062060F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D45E10AD26798A6A0062060F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D45E10AF26798A6A0062060F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Fred/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Fred/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.justuslanguell.Fred;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D45E10B026798A6A0062060F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Fred/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Fred/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.justuslanguell.Fred;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D45E10B226798A6A0062060F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FredTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.justuslanguell.FredTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fred.app/Fred";
+			};
+			name = Debug;
+		};
+		D45E10B326798A6A0062060F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FredTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.justuslanguell.FredTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fred.app/Fred";
+			};
+			name = Release;
+		};
+		D45E10B526798A6A0062060F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FredUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.justuslanguell.FredUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Fred;
+			};
+			name = Debug;
+		};
+		D45E10B626798A6A0062060F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FredUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.justuslanguell.FredUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Fred;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D45E107F26798A680062060F /* Build configuration list for PBXProject "Fred" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D45E10AC26798A6A0062060F /* Debug */,
+				D45E10AD26798A6A0062060F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D45E10AE26798A6A0062060F /* Build configuration list for PBXNativeTarget "Fred" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D45E10AF26798A6A0062060F /* Debug */,
+				D45E10B026798A6A0062060F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D45E10B126798A6A0062060F /* Build configuration list for PBXNativeTarget "FredTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D45E10B226798A6A0062060F /* Debug */,
+				D45E10B326798A6A0062060F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D45E10B426798A6A0062060F /* Build configuration list for PBXNativeTarget "FredUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D45E10B526798A6A0062060F /* Debug */,
+				D45E10B626798A6A0062060F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D45E10B72679A4D60062060F /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D45E10B82679A4D60062060F /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D45E10B72679A4D60062060F /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = D45E107C26798A680062060F /* Project object */;
+}
