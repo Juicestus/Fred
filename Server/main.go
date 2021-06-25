@@ -11,10 +11,10 @@ import (
 	"fmt"
 	"log"
 	"strings"
+	"strconv"
 	"net/http"
     "io/ioutil"
 )
-
 
 func read() (r string) {
 	db := "database.db"
@@ -22,6 +22,7 @@ func read() (r string) {
     if err != nil {
         panic(err)
     }
+
 	datraw := string(datbyte)
 	dat := ""
 	for i := 0; i < len(datraw); i++ {
@@ -30,7 +31,6 @@ func read() (r string) {
 		}
 	}
 	r = dat
-	//r = ("[" + dat + "]")
 	return
 }
 
@@ -45,29 +45,50 @@ func write(usr string, msg string) {
     }
 
 }
+
+// Input from app cannot contain "},{", "}|{" or 
+//" " " (like the single quote lol)
+
+func msgs(n int) (r string) {
+	raw := read()
+	raw = strings.TrimSuffix(raw, ",")
+	piped := strings.Replace(raw, "},{", "}|{", -1)
+	ls := strings.Split(piped, "|")
+
+	lls := len(ls)
+	r = "["
+
+	if n < lls {
+		for i := lls-1; i > lls-n-1; i-- {
+			r += (ls[i] + ",")
+		}
+		r = strings.TrimSuffix(r, ",")
+		r += "]"
+	} else {
+		r += (raw + "]")
+	}
+	return
+}
+
 func post(w http.ResponseWriter, r *http.Request) {
-	/*
+
 	if r.URL.Path != "/post" {
-		http.Error(w, "<script>window.location = '/'</script><h2>404 not found<h2>", http.StatusNotFound)
+		http.Error(w,
+				   "<script>window.location = '/'</script><h2>404 not found<h2>",
+				   http.StatusNotFound)
 		return
 	}
-	*/
 
 	switch r.Method {
 		case "GET":
-			 //http.ServeFile(w, r, "post.html")
-			 //http.ServeFile(w, r, "database.db")
-			 resp := read()
-			 resp = strings.TrimSuffix(resp, ",")
-			 fmt.Fprintf(w, "[" + resp + "]")
+			 http.ServeFile(w, r, "post.html")
 
 		case "POST":
-			// Call ParseForm() to parse the raw query and update r.PostForm and r.Form.
 			if err := r.ParseForm(); err != nil {
 				fmt.Fprintf(w, "ParseForm() err: %v", err)
 				return
 			}
-			//fmt.Fprintf(w, "Post from website! r.PostFrom = %v\n", r.PostForm)
+
 			usr := r.FormValue("usr")
 			msg := r.FormValue("msg")
 			fmt.Fprintf(w, "Message Posted")
@@ -78,6 +99,49 @@ func post(w http.ResponseWriter, r *http.Request) {
 			fmt.Fprintf(w, "Sorry, only GET and POST methods are supported.")
 	}
 }
+
+func get(w http.ResponseWriter, r *http.Request) {
+
+	if r.URL.Path != "/get" {
+		http.Error(w,
+				   "<script>window.location = '/'</script><h2>404 not found<h2>",
+				   http.StatusNotFound)
+		return
+	}
+
+
+	switch r.Method {
+		case "GET":
+			http.ServeFile(w, r, "get.html")
+
+		case "POST":
+			if err := r.ParseForm(); err != nil {
+				fmt.Fprintf(w, "ParseForm() err: %v", err)
+				return
+			}
+
+			rn := r.FormValue("n")
+			n, err := strconv.Atoi(rn)
+
+			if err == nil {
+				if n > 0 {
+					fmt.Printf("Someone requested %v messages\n", n)
+					resp := msgs(n)
+					fmt.Fprintf(w, resp)
+				} else {
+					fmt.Fprintf(w, "\"Invalid N\"")
+					fmt.Printf("Someone requested negative messages\n")
+				}
+			} else {
+				fmt.Fprintf(w, "\"Invalid N\"")
+				fmt.Printf("Someone requested non int messages\n")
+			}
+
+		default:
+			fmt.Fprintf(w, "Sorry, only GET and POST methods are supported.")
+	}
+}
+
 
 func index(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
@@ -97,9 +161,11 @@ func index(w http.ResponseWriter, r *http.Request) {
 func main() {
 	http.HandleFunc("/", index)
 	http.HandleFunc("/post", post)
+	http.HandleFunc("/get", get)
 
 	fmt.Printf("Fred Server (c) Justus Languell 2021\n")
-	fmt.Printf("Starting server for testing HTTP POST...\n")
+	fmt.Printf("Starting server on port 8080...\n")
+
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		log.Fatal(err)
 	}

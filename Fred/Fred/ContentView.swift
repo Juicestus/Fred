@@ -21,7 +21,9 @@ func getScreenHeight() -> CGFloat {
 
 
 //MARK: - Send A Post Request To Server
-func post(url: String, usr: String, msg: String) {
+func post(rurl: String, usr: String, msg: String) {
+    var url: String = url + "/post"
+
     let _headers : HTTPHeaders = [
         "Content-Type": "application/x-www-form-urlencoded"
     ]
@@ -37,7 +39,9 @@ func post(url: String, usr: String, msg: String) {
 }
 
 //MARK: - Get Messages From The Server
-func get(url: String, n: Int) {
+func get(rurl: String, n: Int) {
+    var url: String = url + "/get"
+    
     let _headers : HTTPHeaders = [
         "Content-Type": "application/x-www-form-urlencoded"
     ]
@@ -77,7 +81,7 @@ struct ContentView: View {
     
     @State private var currentTime: Date = Date()
         
-    public var url: String = "https://16b545e7ac34.ngrok.io/post"
+    public var url: String = "https://16b545e7ac34.ngrok.io"
     //"https://webhook.site/6dfae465-452c-4e15-824a-6f618e77938c"
         
     var body: some View {
