@@ -58,14 +58,18 @@ func msgs(n int) (r string) {
 	lls := len(ls)
 	r = "["
 
-	if n < lls {
-		for i := lls-1; i > lls-n-1; i-- {
+	if n == -1 {
+		r += (raw + "]")
+	} else if n < lls {
+		//needed := lls - n
+		for i := n; i < lls; i++ {
 			r += (ls[i] + ",")
 		}
 		r = strings.TrimSuffix(r, ",")
 		r += "]"
 	} else {
-		r += (raw + "]")
+		//r += (raw + "]")
+		r += "]"
 	}
 	return
 }
@@ -124,16 +128,16 @@ func get(w http.ResponseWriter, r *http.Request) {
 			n, err := strconv.Atoi(rn)
 
 			if err == nil {
-				if n > 0 {
+				if n >= -1 {
 					fmt.Printf("Someone requested %v messages\n", n)
 					resp := msgs(n)
 					fmt.Fprintf(w, resp)
 				} else {
-					fmt.Fprintf(w, "\"Invalid N\"")
+					fmt.Fprintf(w, "[]")
 					fmt.Printf("Someone requested negative messages\n")
 				}
 			} else {
-				fmt.Fprintf(w, "\"Invalid N\"")
+				fmt.Fprintf(w, "[]")
 				fmt.Printf("Someone requested non int messages\n")
 			}
 

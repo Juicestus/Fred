@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D43A73FC26857FB6008CA8C1 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = D43A73FB26857FB6008CA8C1 /* SwiftyJSON */; };
 		D45E108826798A690062060F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45E108726798A690062060F /* AppDelegate.swift */; };
 		D45E108A26798A690062060F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45E108926798A690062060F /* SceneDelegate.swift */; };
 		D45E108C26798A690062060F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45E108B26798A690062060F /* ContentView.swift */; };
@@ -57,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D43A73FC26857FB6008CA8C1 /* SwiftyJSON in Frameworks */,
 				D45E10B92679A4D60062060F /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -156,6 +158,7 @@
 			name = Fred;
 			packageProductDependencies = (
 				D45E10B82679A4D60062060F /* Alamofire */,
+				D43A73FB26857FB6008CA8C1 /* SwiftyJSON */,
 			);
 			productName = Fred;
 			productReference = D45E108426798A690062060F /* Fred.app */;
@@ -230,6 +233,7 @@
 			mainGroup = D45E107B26798A680062060F;
 			packageReferences = (
 				D45E10B72679A4D60062060F /* XCRemoteSwiftPackageReference "Alamofire" */,
+				D43A73FA26857FB6008CA8C1 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = D45E108526798A690062060F /* Products */;
 			projectDirPath = "";
@@ -446,6 +450,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Fred/Preview Content\"";
+				DEVELOPMENT_TEAM = 49L9LN4429;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Fred/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -466,6 +471,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Fred/Preview Content\"";
+				DEVELOPMENT_TEAM = 49L9LN4429;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Fred/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -601,6 +607,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D43A73FA26857FB6008CA8C1 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 		D45E10B72679A4D60062060F /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -612,6 +626,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D43A73FB26857FB6008CA8C1 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D43A73FA26857FB6008CA8C1 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
 		D45E10B82679A4D60062060F /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D45E10B72679A4D60062060F /* XCRemoteSwiftPackageReference "Alamofire" */;

@@ -4,9 +4,15 @@
 //
 //  Created by Justus Languell on 6/15/21.
 //
+//  Sorry for being ugly I don't write Swift
+//  like ever
+//
+//  Thank god for this
+//  https://appiconmaker.co/Home/Index/
 
 import SwiftUI
 import Alamofire
+import SwiftyJSON
 import Combine
 
 //MARK: - Main Screen Width
@@ -22,7 +28,7 @@ func getScreenHeight() -> CGFloat {
 
 //MARK: - Send A Post Request To Server
 func post(rurl: String, usr: String, msg: String) {
-    var url: String = url + "/post"
+    let url: String = rurl + "/post"
 
     let _headers : HTTPHeaders = [
         "Content-Type": "application/x-www-form-urlencoded"
@@ -33,27 +39,20 @@ func post(rurl: String, usr: String, msg: String) {
         "msg": msg
     ]
 
-    var req = AF.request(url, method: .post, parameters: params, encoding: URLEncoding.httpBody, headers: _headers)
+    let req = AF.request(url, method: .post, parameters: params, encoding: URLEncoding.httpBody, headers: _headers)
     
-    req.responseString { (response) in print(response)}
+    req.responseString { (response) in
+        //print(response)
+        
+    }
 }
 
-//MARK: - Get Messages From The Server
-func get(rurl: String, n: Int) {
-    var url: String = url + "/get"
-    
-    let _headers : HTTPHeaders = [
-        "Content-Type": "application/x-www-form-urlencoded"
-    ]
-    
-    let params : Parameters = [
-        "msgs": n
-    ]
-
-    var req = AF.request(url, method: .post, parameters: params, encoding: URLEncoding.httpBody, headers: _headers)
-    
-    req.responseString { (response) in print(response)}
+//MARK: - Struct for Messages
+struct lineitem: Decodable, Hashable {
+    let usr: String
+    let msg: String
 }
+
 
 //MARK: - Timer Object I Got From Stack Overflow
 class MyTimer {
@@ -69,24 +68,76 @@ class MyTimer {
     }
 }
 
+//MARK: - Make shit safe
+func makesafe(str: String) -> String {
+    var safestr: String = ""
+    
+    var strchar0: String = ""
+    var strchar1: String = ""
+    var strchar2: String = ""
+
+    for char in str {
+        strchar0 = String(char)
+        
+        if strchar0 == "”" {
+            safestr += "'"
+        } else if strchar0 == "“" {
+            safestr += "'"
+        } else if strchar0 == "”" {
+            safestr += "'"
+        } else if strchar0 == "{" && strchar1 == "," && strchar2 == "}" {
+            safestr = String(safestr.dropLast(2))
+        } else {
+            
+            for subchar in strchar0.unicodeScalars {
+                if subchar.isASCII {
+                    safestr += strchar0
+                } else {
+                    //safestr += "�"
+                    safestr += ""
+
+                }
+            }
+        }
+        
+        strchar2 = strchar1
+        strchar1 = strchar0
+    }
+    return safestr
+}
+
 //Inst. Above
 let timer = MyTimer()
 
 //MARK: - Main ContentView Struct
 struct ContentView: View {
     @State private var msg: String = ""
-    @State var msgs: [String] =
-        ["Msg 1", "Msg 2", "Msg 3"]
-    @State private var n: Int = 3
-    
+    @State private var usr: String = ""
+
+    @State var msgs: [lineitem] = []
+    @State private var n: Int = 0
+
     @State private var currentTime: Date = Date()
         
-    public var url: String = "https://16b545e7ac34.ngrok.io"
+    private let _headers : HTTPHeaders = [
+        "Content-Type": "application/x-www-form-urlencoded"
+    ]
+    
+    @State private var params : Parameters = [
+        "n": -1
+    ]
+    
+    @Namespace var topID
+    @Namespace var bottomID
+    
+    public let url: String = "https://8a9770aaaeae.ngrok.io"
+
     //"https://webhook.site/6dfae465-452c-4e15-824a-6f618e77938c"
         
     var body: some View {
         ZStack {
             Color.black.ignoresSafeArea()
+            
             VStack(alignment: .leading) {
                 Text("Fred 1.0")
                     .bold()
@@ -95,45 +146,149 @@ struct ContentView: View {
                     .frame(width: getScreenWidth(), height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .padding(.bottom)
                     
-                Text("\(currentTime)").onReceive(timer.currentTimePublisher) {
-                    newCurrentTime in self.currentTime = newCurrentTime
-                    n = msgs.count
-                    msgs.append("Msg \(n+1)")
-                }
+                //Text("\(currentTime)")
                 
-                ScrollView {
-                    VStack(alignment: .leading) {
-                        ForEach(msgs, id: \.self) { msgn in
-                            Text("\(msgn)")
-                                .bold()
-                                .font(.title2)
-                                .padding(.all, 5)
-                                .frame(alignment: .leading)
-                                .foregroundColor(.white)
+                ScrollViewReader { proxy in
+                    ScrollView {
+                        Spacer()
+                            .frame(height: 0)
+                            .id(topID)
+                        
+                        VStack(alignment: .leading) {
+                            ForEach(msgs, id: \.self) { msgn in
+                                Text("\(msgn.usr)")
+                                    .bold()
+                                    .font(.title2)
+                                    .padding(.leading, 5)
+                                    .frame(alignment: .leading)
+                                    .foregroundColor(.white)
+                                
+                                Text("\(msgn.msg)")
+                                    .font(.title2)
+                                    .padding(.leading, 5)
+                                    .frame(alignment: .leading)
+                                    .foregroundColor(.white)
+                                
+                                Spacer()
+                                    .frame(height: 10)
+                                    .id(topID)
+                            }
+                            .onReceive(timer.currentTimePublisher) {
+                                newCurrentTime in self.currentTime = newCurrentTime
+                                
+                                usr = makesafe(str: usr)
+                                msg = makesafe(str: msg)
+
+                                if n < msgs.count {
+                                    proxy.scrollTo(bottomID)
+                                    n = msgs.count
+                                }
+                                
+                                /*
+                                params = [
+                                    "n": msgs.count
+                                ]
+                                */
+                                
+                                let req = AF.request(url + "/get",
+                                                     method: .post,
+                                                     parameters: params,
+                                                     encoding: URLEncoding.httpBody,
+                                                     headers: _headers)
+                                
+                                req.responseString { response in
+                                    //let rawstrresp: String = "{\"Messages\": \"\(response)\"}"
+                                    let rawstrresp: String = "\(response)"
+                                    var strresp: String = ""
+                                    var strchar: String = ""
+                                    
+                                    for char in rawstrresp {
+                                        strchar = String(char)
+                                        if strchar != "\\" {
+                                            strresp += strchar
+                                        }
+                                    }
+                                    
+                                    strresp = String(strresp.dropFirst(9))
+                                    strresp = String(strresp.dropLast(2))
+                                    let dataresp: Data = Data(strresp.utf8)
+                                    do {
+                                        let jsonresp: [JSON] = try JSON(data: dataresp).arrayValue
+                                        msgs = []
+                                        for item in jsonresp {
+                                            msgs.append(lineitem.init(usr: item["usr"].stringValue,
+                                                                            msg: item["msg"].stringValue))
+                                        }
+                                        
+                                    } catch(_) {
+                                        
+                                    }
+                                } // end scrollview
+                                
+                            } // end vstack
                             
+                            Spacer()
+                                .frame(height: 0)
+                                .id(bottomID)
                         }
                     }
+                        .fixedSize(horizontal: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/, vertical: false)
+                        .frame(width: getScreenWidth(), alignment: .leading)
+                        //.border(Color.blue, width: 1)
                 }
-                    .fixedSize(horizontal: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/, vertical: false)
-                    .frame(width: getScreenWidth(), alignment: .leading)
-                    .border(Color.blue, width: 2)
-                    
-                    TextField("Message ...", text: $msg)
-                        .padding(/*@START_MENU_TOKEN@*/[.top, .leading, .bottom]/*@END_MENU_TOKEN@*/)
-                        .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 0)
-                        .background(Color.white)
                 
-                    Button("Send Message") {
-                        post(url: url,
-                             usr: "Anon",
-                             msg: msg)
-                        msg = ""
+                HStack {
+
+                    Text("Username")
+                        .foregroundColor(.white)
+                        .font(.footnote)
+                        .frame(width: 80, alignment: .leading)
+                        .padding([.top, .leading, .bottom], 10)
+
+                    ZStack {
+                        if usr.isEmpty {
+                            Text("Username ...").foregroundColor(.gray)
+                        }
+                        TextField("", text: $usr)
+                            .padding(/*@START_MENU_TOKEN@*/[.top, .leading, .bottom]/*@END_MENU_TOKEN@*/, 10)
+                            .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 0)
+                            .background(Color.white)
+                            .foregroundColor(Color.black)
                     }
-                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                        .frame(alignment: .center)
+
+                }
                 
-                
+                HStack {
+                    
+                    Text("Message")
+                        .foregroundColor(.white)
+                        .font(.footnote)
+                        .frame(width: 80, alignment: .leading)
+                        .padding([.top, .leading, .bottom], 10)
+                    
+                    ZStack {
+                        if msg.isEmpty {
+                            Text("Message ...").foregroundColor(.gray)
+                        }
+                    
+                        TextField("", text: $msg)
+                            .padding([.top, .leading, .bottom], 10)
+                            .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 0)
+                            .background(Color.white)
+                            .foregroundColor(Color.black)
+                    }
+                }
+
+                Button("Send Message") {
+                    
+                    post(rurl: url,
+                         usr: usr,
+                         msg: msg)
+                    msg = ""
+                }
+                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    .frame(alignment: .center)
                     
             }
             .padding(.all, 100)
@@ -150,3 +305,5 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
