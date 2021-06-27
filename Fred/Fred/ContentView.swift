@@ -130,7 +130,7 @@ struct ContentView: View {
     @Namespace var topID
     @Namespace var bottomID
     
-    public let url: String = "https://8a9770aaaeae.ngrok.io"
+    public let url: String = "https://510f3fcd3c50.ngrok.io"
 
     //"https://webhook.site/6dfae465-452c-4e15-824a-6f618e77938c"
         
